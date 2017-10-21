@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+		 
+	<ui:define name="content">	
+			
+			
+			<h:form id="formDialog">
+				<p:messages id="msg" />
+				<p:growl id="men"/>
+					<p:panel id="panelThird" header="Third">							
+						<h:panelGrid columns="2" id="panelGrid" >
+												 	<h:outputText id="msgThirdId" value="ThirdId"/>
+						 	<p:inputText id="txtThirdId" binding="#{thirdView.txtThirdId}">
+						 		<p:ajax update="panelThird,msg,panelBotones" listener="#{thirdView.listener_txtId}"/>
+						 	</p:inputText>	
+																		
+													<h:outputText id="msgThirdCity" value=" ThirdCity"/>
+							<p:inputText id="txtThirdCity" disabled="true" binding="#{thirdView.txtThirdCity}"/>
+													<h:outputText id="msgThirdPosition" value=" ThirdPosition"/>
+							<p:inputText id="txtThirdPosition" disabled="true" binding="#{thirdView.txtThirdPosition}"/>
+													<h:outputText id="msgThirdState" value=" ThirdState"/>
+							<p:inputText id="txtThirdState" disabled="true" binding="#{thirdView.txtThirdState}"/>
+													<h:outputText id="msgThirdUsername" value=" ThirdUsername"/>
+							<p:inputText id="txtThirdUsername" disabled="true" binding="#{thirdView.txtThirdUsername}"/>
+												
+										   </h:panelGrid>
+				</p:panel>
+	   			<p:panel id="panelBotones">
+					<div align="center">					
+						<p:commandButton id="btnSave" binding="#{thirdView.btnSave}" disabled="true" value="Save" action="#{thirdView.action_save()}" update="panelThird, msg, panelBotones, men" />
+						<p:commandButton id="btnDelete" binding="#{thirdView.btnDelete}" disabled="true" value="Delete" action="#{thirdView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelThird, msg, panelBotones, men" />
+						<p:commandButton id="btnClear" value="Clear" action="#{thirdView.action_clear()}" update="panelThird, msg, panelBotones, men" />
+					</div>
+				</p:panel>			
+			</h:form>
+			
+  </ui:define>
+</ui:composition>

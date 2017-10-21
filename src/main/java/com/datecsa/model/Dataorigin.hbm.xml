@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2017 9:18:13 PM by Hibernate Tools 5.1.0.Final -->
+<hibernate-mapping>
+    <class name="com.datecsa.model.Dataorigin" table="dataorigin" schema="public" optimistic-lock="version">
+        <id name="dataoriginId" type="java.lang.Integer">
+            <column name="dataorigin_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="dataoriginUsername" type="java.lang.String">
+            <column name="dataorigin_username" length="30" />
+        </property>
+        <property name="dataoriginFirstname" type="java.lang.String">
+            <column name="dataorigin_firstname" length="30" />
+        </property>
+        <property name="dataoriginLastname" type="java.lang.String">
+            <column name="dataorigin_lastname" length="30" />
+        </property>
+        <property name="dataoriginCompany" type="java.lang.String">
+            <column name="dataorigin_company" length="30" />
+        </property>
+        <property name="dataoriginRegiststatus" type="java.lang.String">
+            <column name="dataorigin_registstatus" length="30" />
+        </property>
+        <property name="dataoriginRegisdate" type="java.lang.String">
+            <column name="dataorigin_regisdate" length="30" />
+        </property>
+        <property name="dataoriginCompletstatus" type="java.lang.String">
+            <column name="dataorigin_completstatus" length="30" />
+        </property>
+        <property name="dataoriginCompletdate" type="java.lang.String">
+            <column name="dataorigin_completdate" length="30" />
+        </property>
+        <property name="dataoriginCoursename" type="java.lang.String">
+            <column name="dataorigin_coursename" length="300" />
+        </property>
+        <property name="dataoriginScore" type="java.lang.Integer">
+            <column name="dataorigin_score" />
+        </property>
+        <property name="dataoriginTerritory" type="java.lang.String">
+            <column name="dataorigin_territory" length="30" />
+        </property>
+        <property name="dataoriginDealernumber" type="java.lang.String">
+            <column name="dataorigin_dealernumber" length="30" />
+        </property>
+        <property name="dataoriginUserstatus" type="java.lang.String">
+            <column name="dataorigin_userstatus" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

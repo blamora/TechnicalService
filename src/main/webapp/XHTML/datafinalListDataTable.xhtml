@@ -1,0 +1,189 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+		 
+	<ui:define name="content">		
+
+					
+		  			<h:form id="frm">								  		
+						
+						<p:panel id="panelDataTableDatafinal" header="DatafinalData">
+							<p:growl id="men"/>				
+							<p:dataTable value="#{datafinalView.data}" var="datafinal"
+								paginator="true" rows="5">
+																										<p:column filterBy="#{datafinal.datafinalId}" sortBy="#{datafinal.datafinalId}" >
+										 <f:facet name="header">
+										<h:outputText value="datafinalId"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalId}"/>
+										 </p:column>
+			                    																									
+										<p:column filterBy="#{datafinal.datafinalCompany}" sortBy="#{datafinal.datafinalCompany}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalCompany"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalCompany}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalCompletdate}" sortBy="#{datafinal.datafinalCompletdate}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalCompletdate"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalCompletdate}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalCompletstatus}" sortBy="#{datafinal.datafinalCompletstatus}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalCompletstatus"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalCompletstatus}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalCoursename}" sortBy="#{datafinal.datafinalCoursename}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalCoursename"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalCoursename}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalDealernumber}" sortBy="#{datafinal.datafinalDealernumber}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalDealernumber"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalDealernumber}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalFirstname}" sortBy="#{datafinal.datafinalFirstname}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalFirstname"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalFirstname}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalLastname}" sortBy="#{datafinal.datafinalLastname}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalLastname"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalLastname}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalRegisdate}" sortBy="#{datafinal.datafinalRegisdate}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalRegisdate"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalRegisdate}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalRegiststatus}" sortBy="#{datafinal.datafinalRegiststatus}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalRegiststatus"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalRegiststatus}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalScore}" sortBy="#{datafinal.datafinalScore}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalScore"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalScore}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalTerritory}" sortBy="#{datafinal.datafinalTerritory}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalTerritory"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalTerritory}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalUsername}" sortBy="#{datafinal.datafinalUsername}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalUsername"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalUsername}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{datafinal.datafinalUserstatus}" sortBy="#{datafinal.datafinalUserstatus}" >
+										 <f:facet name="header">
+										<h:outputText value="DatafinalUserstatus"/>
+										</f:facet>
+										 <h:outputText value="#{datafinal.datafinalUserstatus}"/>
+										</p:column>   
+			                    			                    
+								<p:column headerText="Options">
+									<p:commandButton id="btnEdit" icon="ui-icon-pencil"
+										update=":dialogDatafinal"
+										actionListener="#{datafinalView.action_edit}">
+										<f:attribute name="selectedDatafinal" value="#{datafinal}" />
+									</p:commandButton>
+									<p:commandButton id="btnDelete"									
+										title="Delete" actionListener="#{datafinalView.action_delete_datatable}"
+										onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}"
+										icon="ui-icon-trash" update="@form">
+										<f:attribute name="selectedDatafinal" value="#{datafinal}" />
+									</p:commandButton>
+								</p:column>									                    
+							</p:dataTable>	
+						</p:panel>
+						<p:panel id="panelBoton">
+							<div align="center">
+								<p:commandButton id="btnNew" value="New"
+									action="#{datafinalView.action_new()}" update=":dialogDatafinal" />
+							</div>
+						</p:panel>						
+		   			</h:form>
+					<p:dialog id="dialogDatafinal" appendTo="@(body)" draggable="true"
+						closable="false" visible="#{datafinalView.showDialog}" resizable="false"
+						modal="true" width="500">
+						<h:form id="formDialog">
+							<p:messages id="msg" />
+							<p:panel id="panelDatafinal" header="Datafinal">							
+							    <h:panelGrid columns="2" id="panelGrid" >
+																		 <h:outputText id="msgDatafinalId" value="DatafinalId"/>
+									 <p:inputText id="txtDatafinalId" binding="#{datafinalView.txtDatafinalId}">
+									 <p:ajax update=":dialogDatafinal" listener="#{datafinalView.listener_txtId}"/>
+									 </p:inputText>	
+																											
+																		<h:outputText id="msgDatafinalCompany" value=" DatafinalCompany"/>
+									<p:inputText id="txtDatafinalCompany" disabled="true" binding="#{datafinalView.txtDatafinalCompany}"/>
+																		<h:outputText id="msgDatafinalCompletdate" value=" DatafinalCompletdate"/>
+									<p:inputText id="txtDatafinalCompletdate" disabled="true" binding="#{datafinalView.txtDatafinalCompletdate}"/>
+																		<h:outputText id="msgDatafinalCompletstatus" value=" DatafinalCompletstatus"/>
+									<p:inputText id="txtDatafinalCompletstatus" disabled="true" binding="#{datafinalView.txtDatafinalCompletstatus}"/>
+																		<h:outputText id="msgDatafinalCoursename" value=" DatafinalCoursename"/>
+									<p:inputText id="txtDatafinalCoursename" disabled="true" binding="#{datafinalView.txtDatafinalCoursename}"/>
+																		<h:outputText id="msgDatafinalDealernumber" value=" DatafinalDealernumber"/>
+									<p:inputText id="txtDatafinalDealernumber" disabled="true" binding="#{datafinalView.txtDatafinalDealernumber}"/>
+																		<h:outputText id="msgDatafinalFirstname" value=" DatafinalFirstname"/>
+									<p:inputText id="txtDatafinalFirstname" disabled="true" binding="#{datafinalView.txtDatafinalFirstname}"/>
+																		<h:outputText id="msgDatafinalLastname" value=" DatafinalLastname"/>
+									<p:inputText id="txtDatafinalLastname" disabled="true" binding="#{datafinalView.txtDatafinalLastname}"/>
+																		<h:outputText id="msgDatafinalRegisdate" value=" DatafinalRegisdate"/>
+									<p:inputText id="txtDatafinalRegisdate" disabled="true" binding="#{datafinalView.txtDatafinalRegisdate}"/>
+																		<h:outputText id="msgDatafinalRegiststatus" value=" DatafinalRegiststatus"/>
+									<p:inputText id="txtDatafinalRegiststatus" disabled="true" binding="#{datafinalView.txtDatafinalRegiststatus}"/>
+																		<h:outputText id="msgDatafinalScore" value=" DatafinalScore"/>
+									<p:inputText id="txtDatafinalScore" disabled="true" binding="#{datafinalView.txtDatafinalScore}"/>
+																		<h:outputText id="msgDatafinalTerritory" value=" DatafinalTerritory"/>
+									<p:inputText id="txtDatafinalTerritory" disabled="true" binding="#{datafinalView.txtDatafinalTerritory}"/>
+																		<h:outputText id="msgDatafinalUsername" value=" DatafinalUsername"/>
+									<p:inputText id="txtDatafinalUsername" disabled="true" binding="#{datafinalView.txtDatafinalUsername}"/>
+																		<h:outputText id="msgDatafinalUserstatus" value=" DatafinalUserstatus"/>
+									<p:inputText id="txtDatafinalUserstatus" disabled="true" binding="#{datafinalView.txtDatafinalUserstatus}"/>
+																		
+																    </h:panelGrid>
+							</p:panel>						   
+							<p:panel id="panelBotones">
+								<div align="center">					
+									<p:commandButton id="btnSave" binding="#{datafinalView.btnSave}" value="Save" action="#{datafinalView.action_save()}" update=":dialogDatafinal :frm:panelDataTableDatafinal" />
+									<p:commandButton id="btnClear" value="Clear" action="#{datafinalView.action_clear()}" update=":dialogDatafinal" />
+									<p:commandButton id="btnExit" value="Exit" action="#{datafinalView.action_closeDialog()}" update=":dialogDatafinal" />
+								</div>
+				</p:panel>
+			</h:form>
+		</p:dialog>
+	</ui:define>
+</ui:composition>
+

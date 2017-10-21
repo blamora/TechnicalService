@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 17, 2017 9:18:13 PM by Hibernate Tools 5.1.0.Final -->
+<hibernate-mapping>
+    <class name="com.datecsa.model.Datafinal" table="datafinal" schema="public" optimistic-lock="version">
+        <id name="datafinalId" type="java.lang.Integer">
+            <column name="datafinal_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="datafinalUsername" type="java.lang.String">
+            <column name="datafinal_username" length="30" />
+        </property>
+        <property name="datafinalFirstname" type="java.lang.String">
+            <column name="datafinal_firstname" length="30" />
+        </property>
+        <property name="datafinalLastname" type="java.lang.String">
+            <column name="datafinal_lastname" length="30" />
+        </property>
+        <property name="datafinalCompany" type="java.lang.String">
+            <column name="datafinal_company" length="30" />
+        </property>
+        <property name="datafinalRegiststatus" type="java.lang.String">
+            <column name="datafinal_registstatus" length="30" />
+        </property>
+        <property name="datafinalRegisdate" type="java.lang.String">
+            <column name="datafinal_regisdate" length="30" />
+        </property>
+        <property name="datafinalCompletstatus" type="java.lang.String">
+            <column name="datafinal_completstatus" length="30" />
+        </property>
+        <property name="datafinalCompletdate" type="java.lang.String">
+            <column name="datafinal_completdate" length="30" />
+        </property>
+        <property name="datafinalCoursename" type="java.lang.String">
+            <column name="datafinal_coursename" length="300" />
+        </property>
+        <property name="datafinalScore" type="java.lang.Integer">
+            <column name="datafinal_score" />
+        </property>
+        <property name="datafinalTerritory" type="java.lang.String">
+            <column name="datafinal_territory" length="30" />
+        </property>
+        <property name="datafinalDealernumber" type="java.lang.String">
+            <column name="datafinal_dealernumber" length="30" />
+        </property>
+        <property name="datafinalUserstatus" type="java.lang.String">
+            <column name="datafinal_userstatus" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>

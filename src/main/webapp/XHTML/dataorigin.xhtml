@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+		 
+	<ui:define name="content">	
+			
+			
+			<h:form id="formDialog">
+				<p:messages id="msg" />
+				<p:growl id="men"/>
+					<p:panel id="panelDataorigin" header="Dataorigin">							
+						<h:panelGrid columns="2" id="panelGrid" >
+												 	<h:outputText id="msgDataoriginId" value="DataoriginId"/>
+						 	<p:inputText id="txtDataoriginId" binding="#{dataoriginView.txtDataoriginId}">
+						 		<p:ajax update="panelDataorigin,msg,panelBotones" listener="#{dataoriginView.listener_txtId}"/>
+						 	</p:inputText>	
+																		
+													<h:outputText id="msgDataoriginCompany" value=" DataoriginCompany"/>
+							<p:inputText id="txtDataoriginCompany" disabled="true" binding="#{dataoriginView.txtDataoriginCompany}"/>
+													<h:outputText id="msgDataoriginCompletdate" value=" DataoriginCompletdate"/>
+							<p:inputText id="txtDataoriginCompletdate" disabled="true" binding="#{dataoriginView.txtDataoriginCompletdate}"/>
+													<h:outputText id="msgDataoriginCompletstatus" value=" DataoriginCompletstatus"/>
+							<p:inputText id="txtDataoriginCompletstatus" disabled="true" binding="#{dataoriginView.txtDataoriginCompletstatus}"/>
+													<h:outputText id="msgDataoriginCoursename" value=" DataoriginCoursename"/>
+							<p:inputText id="txtDataoriginCoursename" disabled="true" binding="#{dataoriginView.txtDataoriginCoursename}"/>
+													<h:outputText id="msgDataoriginDealernumber" value=" DataoriginDealernumber"/>
+							<p:inputText id="txtDataoriginDealernumber" disabled="true" binding="#{dataoriginView.txtDataoriginDealernumber}"/>
+													<h:outputText id="msgDataoriginFirstname" value=" DataoriginFirstname"/>
+							<p:inputText id="txtDataoriginFirstname" disabled="true" binding="#{dataoriginView.txtDataoriginFirstname}"/>
+													<h:outputText id="msgDataoriginLastname" value=" DataoriginLastname"/>
+							<p:inputText id="txtDataoriginLastname" disabled="true" binding="#{dataoriginView.txtDataoriginLastname}"/>
+													<h:outputText id="msgDataoriginRegisdate" value=" DataoriginRegisdate"/>
+							<p:inputText id="txtDataoriginRegisdate" disabled="true" binding="#{dataoriginView.txtDataoriginRegisdate}"/>
+													<h:outputText id="msgDataoriginRegiststatus" value=" DataoriginRegiststatus"/>
+							<p:inputText id="txtDataoriginRegiststatus" disabled="true" binding="#{dataoriginView.txtDataoriginRegiststatus}"/>
+													<h:outputText id="msgDataoriginScore" value=" DataoriginScore"/>
+							<p:inputText id="txtDataoriginScore" disabled="true" binding="#{dataoriginView.txtDataoriginScore}"/>
+													<h:outputText id="msgDataoriginTerritory" value=" DataoriginTerritory"/>
+							<p:inputText id="txtDataoriginTerritory" disabled="true" binding="#{dataoriginView.txtDataoriginTerritory}"/>
+													<h:outputText id="msgDataoriginUsername" value=" DataoriginUsername"/>
+							<p:inputText id="txtDataoriginUsername" disabled="true" binding="#{dataoriginView.txtDataoriginUsername}"/>
+													<h:outputText id="msgDataoriginUserstatus" value=" DataoriginUserstatus"/>
+							<p:inputText id="txtDataoriginUserstatus" disabled="true" binding="#{dataoriginView.txtDataoriginUserstatus}"/>
+												
+										   </h:panelGrid>
+				</p:panel>
+	   			<p:panel id="panelBotones">
+					<div align="center">					
+						<p:commandButton id="btnSave" binding="#{dataoriginView.btnSave}" disabled="true" value="Save" action="#{dataoriginView.action_save()}" update="panelDataorigin, msg, panelBotones, men" />
+						<p:commandButton id="btnDelete" binding="#{dataoriginView.btnDelete}" disabled="true" value="Delete" action="#{dataoriginView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelDataorigin, msg, panelBotones, men" />
+						<p:commandButton id="btnClear" value="Clear" action="#{dataoriginView.action_clear()}" update="panelDataorigin, msg, panelBotones, men" />
+					</div>
+				</p:panel>			
+			</h:form>
+			
+  </ui:define>
+</ui:composition>

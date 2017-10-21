@@ -1,0 +1,108 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+		 
+	<ui:define name="content">		
+
+					
+		  			<h:form id="frm">								  		
+						
+						<p:panel id="panelDataTableThird" header="ThirdData">
+							<p:growl id="men"/>				
+							<p:dataTable value="#{thirdView.data}" var="third"
+								paginator="true" rows="5">
+																										<p:column filterBy="#{third.thirdId}" sortBy="#{third.thirdId}" >
+										 <f:facet name="header">
+										<h:outputText value="thirdId"/>
+										</f:facet>
+										 <h:outputText value="#{third.thirdId}"/>
+										 </p:column>
+			                    																									
+										<p:column filterBy="#{third.thirdCity}" sortBy="#{third.thirdCity}" >
+										 <f:facet name="header">
+										<h:outputText value="ThirdCity"/>
+										</f:facet>
+										 <h:outputText value="#{third.thirdCity}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{third.thirdPosition}" sortBy="#{third.thirdPosition}" >
+										 <f:facet name="header">
+										<h:outputText value="ThirdPosition"/>
+										</f:facet>
+										 <h:outputText value="#{third.thirdPosition}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{third.thirdState}" sortBy="#{third.thirdState}" >
+										 <f:facet name="header">
+										<h:outputText value="ThirdState"/>
+										</f:facet>
+										 <h:outputText value="#{third.thirdState}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{third.thirdUsername}" sortBy="#{third.thirdUsername}" >
+										 <f:facet name="header">
+										<h:outputText value="ThirdUsername"/>
+										</f:facet>
+										 <h:outputText value="#{third.thirdUsername}"/>
+										</p:column>   
+			                    			                    
+								<p:column headerText="Options">
+									<p:commandButton id="btnEdit" icon="ui-icon-pencil"
+										update=":dialogThird"
+										actionListener="#{thirdView.action_edit}">
+										<f:attribute name="selectedThird" value="#{third}" />
+									</p:commandButton>
+									<p:commandButton id="btnDelete"									
+										title="Delete" actionListener="#{thirdView.action_delete_datatable}"
+										onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}"
+										icon="ui-icon-trash" update="@form">
+										<f:attribute name="selectedThird" value="#{third}" />
+									</p:commandButton>
+								</p:column>									                    
+							</p:dataTable>	
+						</p:panel>
+						<p:panel id="panelBoton">
+							<div align="center">
+								<p:commandButton id="btnNew" value="New"
+									action="#{thirdView.action_new()}" update=":dialogThird" />
+							</div>
+						</p:panel>						
+		   			</h:form>
+					<p:dialog id="dialogThird" appendTo="@(body)" draggable="true"
+						closable="false" visible="#{thirdView.showDialog}" resizable="false"
+						modal="true" width="500">
+						<h:form id="formDialog">
+							<p:messages id="msg" />
+							<p:panel id="panelThird" header="Third">							
+							    <h:panelGrid columns="2" id="panelGrid" >
+																		 <h:outputText id="msgThirdId" value="ThirdId"/>
+									 <p:inputText id="txtThirdId" binding="#{thirdView.txtThirdId}">
+									 <p:ajax update=":dialogThird" listener="#{thirdView.listener_txtId}"/>
+									 </p:inputText>	
+																											
+																		<h:outputText id="msgThirdCity" value=" ThirdCity"/>
+									<p:inputText id="txtThirdCity" disabled="true" binding="#{thirdView.txtThirdCity}"/>
+																		<h:outputText id="msgThirdPosition" value=" ThirdPosition"/>
+									<p:inputText id="txtThirdPosition" disabled="true" binding="#{thirdView.txtThirdPosition}"/>
+																		<h:outputText id="msgThirdState" value=" ThirdState"/>
+									<p:inputText id="txtThirdState" disabled="true" binding="#{thirdView.txtThirdState}"/>
+																		<h:outputText id="msgThirdUsername" value=" ThirdUsername"/>
+									<p:inputText id="txtThirdUsername" disabled="true" binding="#{thirdView.txtThirdUsername}"/>
+																		
+																    </h:panelGrid>
+							</p:panel>						   
+							<p:panel id="panelBotones">
+								<div align="center">					
+									<p:commandButton id="btnSave" binding="#{thirdView.btnSave}" value="Save" action="#{thirdView.action_save()}" update=":dialogThird :frm:panelDataTableThird" />
+									<p:commandButton id="btnClear" value="Clear" action="#{thirdView.action_clear()}" update=":dialogThird" />
+									<p:commandButton id="btnExit" value="Exit" action="#{thirdView.action_closeDialog()}" update=":dialogThird" />
+								</div>
+				</p:panel>
+			</h:form>
+		</p:dialog>
+	</ui:define>
+</ui:composition>
+

@@ -1,0 +1,189 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+		 
+	<ui:define name="content">		
+
+					
+		  			<h:form id="frm">								  		
+						
+						<p:panel id="panelDataTableDataorigin" header="DataoriginData">
+							<p:growl id="men"/>				
+							<p:dataTable value="#{dataoriginView.data}" var="dataorigin"
+								paginator="true" rows="5">
+																										<p:column filterBy="#{dataorigin.dataoriginId}" sortBy="#{dataorigin.dataoriginId}" >
+										 <f:facet name="header">
+										<h:outputText value="dataoriginId"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginId}"/>
+										 </p:column>
+			                    																									
+										<p:column filterBy="#{dataorigin.dataoriginCompany}" sortBy="#{dataorigin.dataoriginCompany}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginCompany"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginCompany}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginCompletdate}" sortBy="#{dataorigin.dataoriginCompletdate}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginCompletdate"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginCompletdate}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginCompletstatus}" sortBy="#{dataorigin.dataoriginCompletstatus}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginCompletstatus"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginCompletstatus}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginCoursename}" sortBy="#{dataorigin.dataoriginCoursename}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginCoursename"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginCoursename}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginDealernumber}" sortBy="#{dataorigin.dataoriginDealernumber}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginDealernumber"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginDealernumber}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginFirstname}" sortBy="#{dataorigin.dataoriginFirstname}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginFirstname"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginFirstname}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginLastname}" sortBy="#{dataorigin.dataoriginLastname}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginLastname"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginLastname}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginRegisdate}" sortBy="#{dataorigin.dataoriginRegisdate}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginRegisdate"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginRegisdate}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginRegiststatus}" sortBy="#{dataorigin.dataoriginRegiststatus}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginRegiststatus"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginRegiststatus}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginScore}" sortBy="#{dataorigin.dataoriginScore}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginScore"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginScore}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginTerritory}" sortBy="#{dataorigin.dataoriginTerritory}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginTerritory"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginTerritory}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginUsername}" sortBy="#{dataorigin.dataoriginUsername}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginUsername"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginUsername}"/>
+										</p:column>   
+			                    									
+										<p:column filterBy="#{dataorigin.dataoriginUserstatus}" sortBy="#{dataorigin.dataoriginUserstatus}" >
+										 <f:facet name="header">
+										<h:outputText value="DataoriginUserstatus"/>
+										</f:facet>
+										 <h:outputText value="#{dataorigin.dataoriginUserstatus}"/>
+										</p:column>   
+			                    			                    
+								<p:column headerText="Options">
+									<p:commandButton id="btnEdit" icon="ui-icon-pencil"
+										update=":dialogDataorigin"
+										actionListener="#{dataoriginView.action_edit}">
+										<f:attribute name="selectedDataorigin" value="#{dataorigin}" />
+									</p:commandButton>
+									<p:commandButton id="btnDelete"									
+										title="Delete" actionListener="#{dataoriginView.action_delete_datatable}"
+										onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}"
+										icon="ui-icon-trash" update="@form">
+										<f:attribute name="selectedDataorigin" value="#{dataorigin}" />
+									</p:commandButton>
+								</p:column>									                    
+							</p:dataTable>	
+						</p:panel>
+						<p:panel id="panelBoton">
+							<div align="center">
+								<p:commandButton id="btnNew" value="New"
+									action="#{dataoriginView.action_new()}" update=":dialogDataorigin" />
+							</div>
+						</p:panel>						
+		   			</h:form>
+					<p:dialog id="dialogDataorigin" appendTo="@(body)" draggable="true"
+						closable="false" visible="#{dataoriginView.showDialog}" resizable="false"
+						modal="true" width="500">
+						<h:form id="formDialog">
+							<p:messages id="msg" />
+							<p:panel id="panelDataorigin" header="Dataorigin">							
+							    <h:panelGrid columns="2" id="panelGrid" >
+																		 <h:outputText id="msgDataoriginId" value="DataoriginId"/>
+									 <p:inputText id="txtDataoriginId" binding="#{dataoriginView.txtDataoriginId}">
+									 <p:ajax update=":dialogDataorigin" listener="#{dataoriginView.listener_txtId}"/>
+									 </p:inputText>	
+																											
+																		<h:outputText id="msgDataoriginCompany" value=" DataoriginCompany"/>
+									<p:inputText id="txtDataoriginCompany" disabled="true" binding="#{dataoriginView.txtDataoriginCompany}"/>
+																		<h:outputText id="msgDataoriginCompletdate" value=" DataoriginCompletdate"/>
+									<p:inputText id="txtDataoriginCompletdate" disabled="true" binding="#{dataoriginView.txtDataoriginCompletdate}"/>
+																		<h:outputText id="msgDataoriginCompletstatus" value=" DataoriginCompletstatus"/>
+									<p:inputText id="txtDataoriginCompletstatus" disabled="true" binding="#{dataoriginView.txtDataoriginCompletstatus}"/>
+																		<h:outputText id="msgDataoriginCoursename" value=" DataoriginCoursename"/>
+									<p:inputText id="txtDataoriginCoursename" disabled="true" binding="#{dataoriginView.txtDataoriginCoursename}"/>
+																		<h:outputText id="msgDataoriginDealernumber" value=" DataoriginDealernumber"/>
+									<p:inputText id="txtDataoriginDealernumber" disabled="true" binding="#{dataoriginView.txtDataoriginDealernumber}"/>
+																		<h:outputText id="msgDataoriginFirstname" value=" DataoriginFirstname"/>
+									<p:inputText id="txtDataoriginFirstname" disabled="true" binding="#{dataoriginView.txtDataoriginFirstname}"/>
+																		<h:outputText id="msgDataoriginLastname" value=" DataoriginLastname"/>
+									<p:inputText id="txtDataoriginLastname" disabled="true" binding="#{dataoriginView.txtDataoriginLastname}"/>
+																		<h:outputText id="msgDataoriginRegisdate" value=" DataoriginRegisdate"/>
+									<p:inputText id="txtDataoriginRegisdate" disabled="true" binding="#{dataoriginView.txtDataoriginRegisdate}"/>
+																		<h:outputText id="msgDataoriginRegiststatus" value=" DataoriginRegiststatus"/>
+									<p:inputText id="txtDataoriginRegiststatus" disabled="true" binding="#{dataoriginView.txtDataoriginRegiststatus}"/>
+																		<h:outputText id="msgDataoriginScore" value=" DataoriginScore"/>
+									<p:inputText id="txtDataoriginScore" disabled="true" binding="#{dataoriginView.txtDataoriginScore}"/>
+																		<h:outputText id="msgDataoriginTerritory" value=" DataoriginTerritory"/>
+									<p:inputText id="txtDataoriginTerritory" disabled="true" binding="#{dataoriginView.txtDataoriginTerritory}"/>
+																		<h:outputText id="msgDataoriginUsername" value=" DataoriginUsername"/>
+									<p:inputText id="txtDataoriginUsername" disabled="true" binding="#{dataoriginView.txtDataoriginUsername}"/>
+																		<h:outputText id="msgDataoriginUserstatus" value=" DataoriginUserstatus"/>
+									<p:inputText id="txtDataoriginUserstatus" disabled="true" binding="#{dataoriginView.txtDataoriginUserstatus}"/>
+																		
+																    </h:panelGrid>
+							</p:panel>						   
+							<p:panel id="panelBotones">
+								<div align="center">					
+									<p:commandButton id="btnSave" binding="#{dataoriginView.btnSave}" value="Save" action="#{dataoriginView.action_save()}" update=":dialogDataorigin :frm:panelDataTableDataorigin" />
+									<p:commandButton id="btnClear" value="Clear" action="#{dataoriginView.action_clear()}" update=":dialogDataorigin" />
+									<p:commandButton id="btnExit" value="Exit" action="#{dataoriginView.action_closeDialog()}" update=":dialogDataorigin" />
+								</div>
+				</p:panel>
+			</h:form>
+		</p:dialog>
+	</ui:define>
+</ui:composition>
+

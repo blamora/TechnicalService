@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+		 
+	<ui:define name="content">	
+			
+			
+			<h:form id="formDialog">
+				<p:messages id="msg" />
+				<p:growl id="men"/>
+					<p:panel id="panelDatafinal" header="Datafinal">							
+						<h:panelGrid columns="2" id="panelGrid" >
+												 	<h:outputText id="msgDatafinalId" value="DatafinalId"/>
+						 	<p:inputText id="txtDatafinalId" binding="#{datafinalView.txtDatafinalId}">
+						 		<p:ajax update="panelDatafinal,msg,panelBotones" listener="#{datafinalView.listener_txtId}"/>
+						 	</p:inputText>	
+																		
+													<h:outputText id="msgDatafinalCompany" value=" DatafinalCompany"/>
+							<p:inputText id="txtDatafinalCompany" disabled="true" binding="#{datafinalView.txtDatafinalCompany}"/>
+													<h:outputText id="msgDatafinalCompletdate" value=" DatafinalCompletdate"/>
+							<p:inputText id="txtDatafinalCompletdate" disabled="true" binding="#{datafinalView.txtDatafinalCompletdate}"/>
+													<h:outputText id="msgDatafinalCompletstatus" value=" DatafinalCompletstatus"/>
+							<p:inputText id="txtDatafinalCompletstatus" disabled="true" binding="#{datafinalView.txtDatafinalCompletstatus}"/>
+													<h:outputText id="msgDatafinalCoursename" value=" DatafinalCoursename"/>
+							<p:inputText id="txtDatafinalCoursename" disabled="true" binding="#{datafinalView.txtDatafinalCoursename}"/>
+													<h:outputText id="msgDatafinalDealernumber" value=" DatafinalDealernumber"/>
+							<p:inputText id="txtDatafinalDealernumber" disabled="true" binding="#{datafinalView.txtDatafinalDealernumber}"/>
+													<h:outputText id="msgDatafinalFirstname" value=" DatafinalFirstname"/>
+							<p:inputText id="txtDatafinalFirstname" disabled="true" binding="#{datafinalView.txtDatafinalFirstname}"/>
+													<h:outputText id="msgDatafinalLastname" value=" DatafinalLastname"/>
+							<p:inputText id="txtDatafinalLastname" disabled="true" binding="#{datafinalView.txtDatafinalLastname}"/>
+													<h:outputText id="msgDatafinalRegisdate" value=" DatafinalRegisdate"/>
+							<p:inputText id="txtDatafinalRegisdate" disabled="true" binding="#{datafinalView.txtDatafinalRegisdate}"/>
+													<h:outputText id="msgDatafinalRegiststatus" value=" DatafinalRegiststatus"/>
+							<p:inputText id="txtDatafinalRegiststatus" disabled="true" binding="#{datafinalView.txtDatafinalRegiststatus}"/>
+													<h:outputText id="msgDatafinalScore" value=" DatafinalScore"/>
+							<p:inputText id="txtDatafinalScore" disabled="true" binding="#{datafinalView.txtDatafinalScore}"/>
+													<h:outputText id="msgDatafinalTerritory" value=" DatafinalTerritory"/>
+							<p:inputText id="txtDatafinalTerritory" disabled="true" binding="#{datafinalView.txtDatafinalTerritory}"/>
+													<h:outputText id="msgDatafinalUsername" value=" DatafinalUsername"/>
+							<p:inputText id="txtDatafinalUsername" disabled="true" binding="#{datafinalView.txtDatafinalUsername}"/>
+													<h:outputText id="msgDatafinalUserstatus" value=" DatafinalUserstatus"/>
+							<p:inputText id="txtDatafinalUserstatus" disabled="true" binding="#{datafinalView.txtDatafinalUserstatus}"/>
+												
+										   </h:panelGrid>
+				</p:panel>
+	   			<p:panel id="panelBotones">
+					<div align="center">					
+						<p:commandButton id="btnSave" binding="#{datafinalView.btnSave}" disabled="true" value="Save" action="#{datafinalView.action_save()}" update="panelDatafinal, msg, panelBotones, men" />
+						<p:commandButton id="btnDelete" binding="#{datafinalView.btnDelete}" disabled="true" value="Delete" action="#{datafinalView.action_delete_master()}" onclick="if(!confirm('Do you really want to delete this Entry?')){return false;}" update="panelDatafinal, msg, panelBotones, men" />
+						<p:commandButton id="btnClear" value="Clear" action="#{datafinalView.action_clear()}" update="panelDatafinal, msg, panelBotones, men" />
+					</div>
+				</p:panel>			
+			</h:form>
+			
+  </ui:define>
+</ui:composition>
